@@ -1,3 +1,5 @@
+*best series to follow -> "Namaste js"->theory with "chau aur code js"->practical
+
 1-What is JavaScript?
 -JavaScript (JS) is a high-level, interpreted programming language
 -synchronous, single-threaded language
@@ -167,6 +169,11 @@ phase) of the Execution Context.
 -This is what enables scope chains and closures.
 
 
+15.1:what is garbage collector ?
+Garbage collector : Program in JS engine or browser that frees up unused memory. In highlevel languages like C++ or JAVA, garbage collection is left to the programmer, but in JS engine its done implicitly
+
+
+
 16:what is scope chains?
 -When you reference a variable, JS first looks in the current scope.If not found, it moves outward step by step through the lexical environments until it reaches the global scope.This chain of linked environments is called the scope chain.
 -eg:
@@ -228,13 +235,15 @@ eg:
 
 -curring: Transforming a function that takes multiple arguments into a sequence of functions, each taking a single argument.
 eg:
-    // Normal function function add(a, b, c) { return a + b + c; }
+    // Normal function 
+    function add(a, b, c) { return a + b + c; }
+    //curried fucntion 
     function curryAdd(a) {
-    return function(b) {
-        return function(c) {
-        return a + b + c;
+        return function(b) {
+            return function(c) {
+            return a + b + c;
+            };
         };
-    };
     }
     //curried fucntion 
     let add1 = curryAdd(1);       // fix 'a' as 1
@@ -244,11 +253,26 @@ eg:
 
 -memoization //to be explained later 
 -setTimeout
+-data hiding and encapsulation 
 
 Disadvantages:
-    Over consumption of memory
-    Memory Leak
-    Freeze browse
+    *Over consumption of memory:
+        function a() { 
+            var x = 0; 
+            return function b() { 
+                
+            }; 
+        } 
+        var y = a(); // y is a copy of b() 
+        y(); 
+        // Once a() is called, its element x should be garbage collected ideally. But fun b has 
+        closure over var x. So mem of x cannot be freed. Like this if more closures formed, it 
+        becomes an issue. To tacke this, JS engines like v8 and Chrome have smart garbage 
+        collection mechanisms. Say we have var x = 0, z = 10 in above code. When console log 
+        happens, x is printed as 0 but z is removed automatically.
+
+    *Memory Leak
+    *Freeze browse
 
 
 
@@ -288,5 +312,8 @@ eg:
 -When you try to shadow a variable declared with let or const using var in the same scope, it causes an error.
 
 
-21:
+21:What is a first order function ?
+-First-class function = functions can be treated like values. You can assign, pass, return, and store them.
+-This is why concepts like callbacks, closures, currying, and HOFs are possible in JavaScript.
+
 
