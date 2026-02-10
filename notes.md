@@ -29,6 +29,7 @@ Memory component has all the variables and functions in key value pairs. It is a
 a:Memory creation phase - JS will allocate memory to variables and functions.
 b:Code execution phase
 eg:
+
     var n = 2;
     function square(num) {
     var ans = num \* num;
@@ -41,7 +42,7 @@ eg:
     Variables (n, square2, square4) → allocated with undefined.
     Functions (square) → full function code stored.
     call stack:
-
+    
     2->Code Execution Phase (Global Context)
     n = 2 → assigns value.
     Function declaration already handled.
@@ -177,6 +178,7 @@ Garbage collector : Program in JS engine or browser that frees up unused memory.
 16:what is scope chains?
 -When you reference a variable, JS first looks in the current scope.If not found, it moves outward step by step through the lexical environments until it reaches the global scope.This chain of linked environments is called the scope chain.
 -eg:
+
     function outer() {
     let a = 10;
     function inner() {
@@ -192,6 +194,7 @@ Garbage collector : Program in JS engine or browser that frees up unused memory.
 17:what is closure ?
 -A function that remembers the variables from the scope/parent where it was created, even after that scope has finished executing.(lexical scope + fucntion / Function bundled along with it's lexical scope is closure)
 -eg:
+
     function makeCounter() {
     let count = 0;
     return function() {
@@ -209,6 +212,7 @@ Garbage collector : Program in JS engine or browser that frees up unused memory.
 Advantages:
 -module design pattern: it allows us to encapsulate related functionality into a single module or file
 eg: 
+
     const Auth = (function(){
         const user = null;
         function login(user,passoword)
@@ -235,6 +239,7 @@ eg:
 
 -curring: Transforming a function that takes multiple arguments into a sequence of functions, each taking a single argument.
 eg:
+
     // Normal function 
     function add(a, b, c) { return a + b + c; }
     //curried fucntion 
@@ -257,6 +262,7 @@ eg:
 
 Disadvantages:
     *Over consumption of memory:
+    
         function a() { 
             var x = 0; 
             return function b() { 
@@ -298,6 +304,7 @@ Disadvantages:
 20:What is shadowing ?
 -When a variable declared in an inner scope (like inside a function or block) has the same name as a variable in an outer scope, the inner one shadows (hides) the outer one within that scope.
 eg:
+
     let a = 10;
     function test() {
     let a = 20; // shadows outer 'a'
@@ -315,5 +322,6 @@ eg:
 21:What is a first order function ?
 -First-class function = functions can be treated like values. You can assign, pass, return, and store them.
 -This is why concepts like callbacks, closures, currying, and HOFs are possible in JavaScript.
+
 
 
