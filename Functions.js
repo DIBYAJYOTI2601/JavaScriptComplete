@@ -1,5 +1,5 @@
 /* functions in js
-Named , Anonymous , Arrow , IIFE(Immediately Invoked Function Expression) , callback function , highorder function (first class function),closures,
+Named(function statement), Anonymous , Arrow , IIFE(Immediately Invoked Function Expression) , callback function , highorder function (first class function/function expression) ,closures,
 */
 
 
@@ -276,7 +276,28 @@ obj.increment();
 obj.decrement();
 
 
+//function statement vs function expression
+
+a1(); //-->ouput:a hoisting works here 
+//b1(); //-->Type Error
+//function statement 
+function a1()
+{
+    console.log("a1");
+}
+//function expressio 
+var b1 = function (){
+    console.log("b1");
+}
+b1();//this will work 
 
 
+//practice
+function abcd(a,b,c)
+{
+    return a(b,c);
+}
+var abc = abcd((a,b)=>a*b,10,20);
+console.log(abc);
 
 
